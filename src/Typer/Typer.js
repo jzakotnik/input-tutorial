@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -33,7 +33,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const match = inputText => {
+  return "Todo, some matching... " + inputText;
+};
+
 export default function Typer() {
+  const [textValue, setTextValue] = useState("");
   const classes = useStyles();
 
   return (
@@ -55,6 +60,8 @@ export default function Typer() {
             id="myInput"
             label="Schreibe hier"
             name="myInput"
+            value={textValue}
+            onChange={event => setTextValue(event.target.value)}
             autoFocus
           />
           <TextField
@@ -64,6 +71,7 @@ export default function Typer() {
             fullWidth
             name="template"
             label="Schreibe mir nach"
+            value={match(textValue)}
             id="template"
           />
 

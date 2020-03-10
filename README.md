@@ -10,4 +10,5 @@ Die React Seite wird komplett auf dem Browser ausgeführt und in einem JS file k
 
 ## Demo
 
-Eine [Demo](https://jzakotnik.github.io/input-tutorial/) hier
+Eine [Demo](https://jzakotnik.github.io/input-tutorial/) hier.
+![Screenshot](./demo.png)

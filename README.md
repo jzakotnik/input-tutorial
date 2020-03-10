@@ -6,8 +6,10 @@ Es gibt keine einfache Webseite, wo Grundschulkinder einfach mal ein paar Sätze
 
 ## Wie?
 
-Die React Seite wird komplett auf dem Browser ausgeführt und in einem JS file kann man die Geschichte konfigurieren, welche die Kinder nachtippen sollten.
+Die React Seite wird komplett auf dem Browser ausgeführt und in einem JS file kann man die Geschichte konfigurieren, welche die Kinder nachtippen sollten. Es braucht also keinen Applikationsserver!
 
 ## Demo
 
 Eine [Demo](https://jzakotnik.github.io/input-tutorial/) hier
+
+

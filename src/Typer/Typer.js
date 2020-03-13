@@ -9,8 +9,7 @@ import AndroidIcon from "@material-ui/icons/Android";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
-var levenshtein = require("js-levenshtein");
+import Image from "material-ui-image";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -29,6 +28,11 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
+  },
+  eddyImage: {
+    alignItems: "center",
+    justifyContent: "center",
+    height: "50%"
   }
 }));
 
@@ -51,6 +55,22 @@ const actionSentences = [
   "Tür auf und rein!"
 ];
 
+function hammingDistance(a, b) {
+  if (a.length !== b.length) {
+    return b.length - a.length;
+  }
+
+  let distance = 0;
+
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) {
+      distance += 1;
+    }
+  }
+
+  return distance;
+}
+
 export default function Typer() {
   const [textValue, setTextValue] = useState("");
   const [level, setLevel] = useState(0);
@@ -60,7 +80,8 @@ export default function Typer() {
   const classes = useStyles();
   const match = inputText => {
     setTextValue(inputText);
-    const textSimilarity = levenshtein(inputText, actionSentences[level]);
+    const textSimilarity = hammingDistance(inputText, actionSentences[level]);
+    //console.log(textSimilarity);
     setErrors(textSimilarity);
     setNextLevelDisabled(textSimilarity > 0);
     return "Some matching... " + inputText;
